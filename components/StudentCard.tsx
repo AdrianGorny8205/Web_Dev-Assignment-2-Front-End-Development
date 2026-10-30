@@ -2,43 +2,43 @@ import { student } from "@/data/students";
 import { useState } from "react";
 
 interface StudentCardProps {
-    FirstName: string;
-    LastName: string;
+    firstName: string;
+    lastName: string;
     grade: number;
     average: number;
     onRemove: () => void;
 
 }
-const studentCard = ({ FirstName, LastName, grade,average, onRemove }: StudentCardProps) => {
+const studentCard = ({ firstName, lastName, grade,average, onRemove }: StudentCardProps) => {
     const [showDetails, setShowDetails] = useState(false);
     return (
         <>
         <li className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 bg-grey p-4 shadow-md">
             <div>
                 <span className="font-medium text-blue-900">
-                    {FirstName}, {LastName}
+                    {firstName}, {lastName}
                 </span>
                 <span className="text-sm text-blue-700 ml-2">
                     Grade {grade}
                 </span>
             </div>
             <div className="flex items-center gap-2">
-            <button 
-                type="button"
-                onClick={() =>  setShowDetails((current) => !current)} 
-                className="text-sm font-semibold bg-blue-900 text-slate-50 rounded-lg hover:text-blue-200 transistion cursor-pointer"
-            >
-                {showDetails ? "Hide Details" : "Details"}
-            </button>
-
-            <button
-                type="button"
-                onClick={onRemove}
-                className="text-sm font-semibold bg-white text-rose-600 rounded-lg hover:text-rose-800 transition cursor-pointer"
-            >
-                 Remove 
-            </button>
-        </div>
+                <button 
+                    type="button"
+                    onClick={() =>  setShowDetails((current) => !current)} 
+                    className="text-sm font-semibold bg-blue-900 text-slate-50 rounded-lg hover:text-blue-200 transistion cursor-pointer"
+                >
+                    {showDetails ? "Hide Details" : "Details"}
+                </button>
+                
+                <button
+                    type="button"
+                    onClick={onRemove}
+                    className="text-sm font-semibold bg-white text-rose-600 rounded-lg hover:text-rose-800 transition cursor-pointer"
+                >
+                    Remove 
+                </button>
+            </div>
         </li>
         {showDetails && (
             <div className="mt-4 rounded-lg border border-slate-200 bg-white p-3">
@@ -55,6 +55,7 @@ const studentCard = ({ FirstName, LastName, grade,average, onRemove }: StudentCa
                     <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-800">
                         Honour Roll
                     </span>
+                )}
             </div>
         )}
         </>

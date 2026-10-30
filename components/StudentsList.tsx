@@ -39,6 +39,3 @@ const StudentList = () => {
 };
 
 export default StudentList;
-    ); 
-};
-export default studentList;
