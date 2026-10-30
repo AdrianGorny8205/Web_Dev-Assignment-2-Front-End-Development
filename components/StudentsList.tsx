@@ -1,31 +1,44 @@
-"use client"
+"use client";
 import { useState } from "react";
-import { student } from "@/data/students"
+import { student } from "@/data/students";
 import StudentCard from "./StudentCard";
 
 
-const studentList = () => {
-    const [students, setStudents] = useState(student);
+const StudentList = () => {
+    const [studentList, setStudentList] = useState(student);
     const handleRemove = (id: number) => {
-    setStudents((currentStudents) => currentStudents.filter(
-            (currentStudent) => currentStudent.id !== id
-      ));
+        setStudentList((currentStudents) =>
+            currentStudents.filter(
+                (currentStudent) => currentStudent.id !== id
+            )
+        );
     };
-   return (
-      <div className="bg-white rounded-2xl shadow-md p-6">
-        <ul className="mt-6">
-          {students.map((student) => (
-            <StudentCard
-              key={student.id}
-              FirstName={student.FirstName}
-              LastName={student.LastName}
-              grade={student.grade}
-              average={student.average}
-              onRemove={() => handleRemove(student.id)}
-             />
-            ))}
-        </ul>
-      </div>
+    return (
+        <div className="rounded-2xl bg-white p-6 shadow-md">
+            <ul className="mt-6 space-y-4">
+
+                {studentList.length === 0 ? (
+                    <p className="py-8 text-center text-gray-500">
+                        No students found.
+                    </p>
+                ) : (
+                    studentList.map((student) => (
+                        <StudentCard
+                            key={student.id}
+                            firstName={student.FirstName}
+                            lastName={student.LastName}
+                            grade={student.grade}
+                            average={student.average}
+                            onRemove={() => handleRemove(student.id)}
+                        />
+                    ))
+                )}
+            </ul>
+        </div>
+    );
+};
+
+export default StudentList;
     ); 
 };
 export default studentList;
