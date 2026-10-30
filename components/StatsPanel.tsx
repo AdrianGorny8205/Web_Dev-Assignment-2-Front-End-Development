@@ -1,14 +1,22 @@
 "use client";
-
+import { student } from "@/data/students";
 import { useState } from "react";
 
 const StatsPanel = () => {
-    // these values need to be properly set and updated still
-    var studentCount = 0;
-    var honourRollCount = 0;
+    var studentCount = student.length;
+    let honourRollCount = 0;
     var grade12Count = 0;
-    // Need to put a for loop here to calculate the second two
-    // This will probably be in a stats update handler later
+    for (let i = 0; i < student.length; i++) {
+        if(student[i].average >= 80) {
+            honourRollCount++;
+        }
+    }
+    for (let i = 0; i < student.length; i++) {
+        if(student[i].grade = 12) {
+            grade12Count++;
+        }
+    }
+    // for loop added lmk if this is what you wanted done with it
     return (
         <div className="rounded-2xl bg-white p-6 shadow-md">
             <p>
