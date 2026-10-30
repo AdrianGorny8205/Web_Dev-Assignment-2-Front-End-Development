@@ -1,14 +1,18 @@
 import { student } from "@/data/students";
+import { useState } from "react";
 
 interface StudentCardProps {
     FirstName: string;
     LastName: string;
     grade: number;
+    average: number;
     onRemove: () => void;
-    onDetails: () => void;
+
 }
-const studentCard = ({ FirstName, LastName, grade, onRemove, onDetails }: StudentCardProps) => {
+const studentCard = ({ FirstName, LastName, grade,average, onRemove }: StudentCardProps) => {
+    const [showDetails, setShowDetails] = useState(false);
     return (
+        <>
         <li className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 bg-grey p-4 shadow-md">
             <div>
                 <span className="font-medium text-blue-900">
@@ -20,12 +24,15 @@ const studentCard = ({ FirstName, LastName, grade, onRemove, onDetails }: Studen
             </div>
             <div className="flex items-center gap-2">
             <button 
-                onClick={onDetails} 
+                type="button"
+                onClick={() =>  setShowDetails((current) => !current)} 
                 className="text-sm font-semibold bg-blue-900 text-slate-50 rounded-lg hover:text-blue-200 transistion cursor-pointer"
             >
-                 Details 
+                {showDetails ? "Hide Details" : "Details"}
             </button>
+
             <button
+                type="button"
                 onClick={onRemove}
                 className="text-sm font-semibold bg-white text-rose-600 rounded-lg hover:text-rose-800 transition cursor-pointer"
             >
@@ -33,8 +40,23 @@ const studentCard = ({ FirstName, LastName, grade, onRemove, onDetails }: Studen
             </button>
         </div>
         </li>
+        {showDetails && (
+            <div className="mt-4 rounded-lg border border-slate-200 bg-white p-3">
+                <h3 className="font-semibold text-blue-900">
+                    Student Details
+                </h3>
+                <p className="text-sm text-gray-700">
+                    Grade: {grade}
+                </p>
+                <p className="text-sm text-gray-700">
+                    Average: {average}
+                </p>
+            </div>
+        )}
+        </>
     );
 };
 export default studentCard;
+
 
 
