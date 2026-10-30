@@ -51,6 +51,10 @@ const studentCard = ({ FirstName, LastName, grade,average, onRemove }: StudentCa
                 <p className="text-sm text-gray-700">
                     Average: {average}
                 </p>
+                {average >= 80 && (
+                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-800">
+                        Honour Roll
+                    </span>
             </div>
         )}
         </>
