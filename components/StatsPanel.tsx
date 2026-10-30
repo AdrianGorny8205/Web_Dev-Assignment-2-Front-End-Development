@@ -16,7 +16,7 @@ const StatsPanel = () => {
             grade12Count++;
         }
     }
-    // for loop added lmk if this is what you wanted done with it
+    // for loop works for honourroll count but not for grade 12 count might need filter function
     return (
         <div className="rounded-2xl bg-white p-6 shadow-md">
             <p>
