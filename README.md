@@ -4,7 +4,7 @@ Dayson MacIntyre
 Studentlist.tsx, StudentCard.tsx, and students.ts
 
 Connor Bosco
-layout.tsx, page.tsx, Footer.tsx, Navbar.tsx
+layout.tsx, page.tsx, Footer.tsx, Navbar.tsx. StatsCard.tsx
 
 Adrian Gorny
 AddStudent.tsx, SearchBox.tsx, StudentPortal.tsx
