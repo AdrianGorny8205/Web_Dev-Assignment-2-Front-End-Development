@@ -1,4 +1,4 @@
-import StudentsList from "@/components/StudentsList";
+import StudentsList from "@/components/StudentList";
 import StatsPanel from "@/components/StatsPanel";
 
 const Home = () => {
