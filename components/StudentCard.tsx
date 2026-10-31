@@ -1,4 +1,4 @@
-import { student } from "@/data/students";
+"use client"
 import { useState } from "react";
 
 interface StudentCardProps {
@@ -9,59 +9,48 @@ interface StudentCardProps {
     onRemove: () => void;
 
 }
-const studentCard = ({ firstName, lastName, grade,average, onRemove }: StudentCardProps) => {
+
+const StudentCard = ({ firstName, lastName, grade, average, onRemove }: StudentCardProps) => {
     const [showDetails, setShowDetails] = useState(false);
     return (
-        <>
-        <li className="flex items-center justify-between gap-4 rounded-lg border border-slate-200 bg-grey p-4 shadow-md">
+        <li className="flex flex-col gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-md">
             <div>
                 <span className="font-medium text-blue-900">
-                    {firstName}, {lastName}
+                    {firstName} {lastName}
                 </span>
                 <span className="text-sm text-blue-700 ml-2">
                     Grade {grade}
                 </span>
             </div>
             <div className="flex items-center gap-2">
-                <button 
+                <button
                     type="button"
-                    onClick={() =>  setShowDetails((current) => !current)} 
-                    className="text-sm font-semibold bg-blue-900 text-slate-50 rounded-lg hover:text-blue-200 transistion cursor-pointer"
+                    onClick={() => setShowDetails((current) => !current)}
+                    className="px-3 py-1 text-sm font-semibold bg-blue-900 text-slate-50 rounded-lg hover:text-blue-200 transition cursor-pointer"
                 >
-                    {showDetails ? "Hide Details" : "Details"}
+                    {showDetails ? "Hide details" : "Show details"}
                 </button>
-                
                 <button
                     type="button"
                     onClick={onRemove}
-                    className="text-sm font-semibold bg-white text-rose-600 rounded-lg hover:text-rose-800 transition cursor-pointer"
+                    className="px-3 py-1 text-sm font-semibold bg-white text-rose-600 rounded-lg hover:text-rose-800 transition cursor-pointer"
                 >
-                    Remove 
+                    Remove
                 </button>
             </div>
+            {showDetails && (
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+                    <p className="text-sm text-gray-700">
+                        Average: {average}
+                    </p>
+                    {average >= 80 && (
+                        <span className="mt-2 inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-800">
+                            Honour Roll
+                        </span>
+                    )}
+                </div>
+            )}
         </li>
-        {showDetails && (
-            <div className="mt-4 rounded-lg border border-slate-200 bg-white p-3">
-                <h3 className="font-semibold text-blue-900">
-                    Student Details
-                </h3>
-                <p className="text-sm text-gray-700">
-                    Grade: {grade}
-                </p>
-                <p className="text-sm text-gray-700">
-                    Average: {average}
-                </p>
-                {average >= 80 && (
-                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm font-semibold text-green-800">
-                        Honour Roll
-                    </span>
-                )}
-            </div>
-        )}
-        </>
     );
 };
-export default studentCard;
-
-
-
+export default StudentCard;
