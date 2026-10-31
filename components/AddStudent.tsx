@@ -1,11 +1,11 @@
 "use client";
  
 import { useState } from "react";
-import { Student } from "@/data/students";
+import { student as Student } from "@/data/students";
  
 
 interface AddStudentProps {
-  onAdd: (student: Omit<Student, "id">) => void;
+  onAdd: (student: Omit<(typeof Student)[number], "id">) => void;
 }
  
 const STARTING_GRADE = 9;
@@ -26,8 +26,8 @@ const AddStudent = ({ onAdd }: AddStudentProps) => {
     }
  
     onAdd({
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
+      FirstName: firstName.trim(),
+      LastName: lastName.trim(),
       grade,
       average,
     });
