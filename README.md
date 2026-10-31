@@ -23,12 +23,13 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## Divided work
 
 Dayson MacIntyre
-Studentlist.tsx, studentCard.tsx, and students.ts
+Studentlist.tsx, StudentCard.tsx, and students.ts
 
 Connor Bosco
 
 
 Adrian Gorny
+AddStudent.tsx, SearchBox.tsx, StudentPortal.tsx
 
 
 
