@@ -12,7 +12,7 @@ const StatsPanel = () => {
         }
     }
     for (let i = 0; i < student.length; i++) {
-        if(student[i].grade = 12) {
+        if(student[i].grade == 12) {
             grade12Count++;
         }
     }
