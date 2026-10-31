@@ -9,7 +9,7 @@ interface AddStudentProps {
 }
  
 const STARTING_GRADE = 9;
-const STARTING_AVERAGE = 70;
+const STARTING_AVERAGE = "70";
  
 const AddStudent = ({ onAdd }: AddStudentProps) => {
 
@@ -29,7 +29,7 @@ const AddStudent = ({ onAdd }: AddStudentProps) => {
       FirstName: firstName.trim(),
       LastName: lastName.trim(),
       grade,
-      average,
+      average: Number(average),
     });
  
     setFirstName("");
@@ -89,7 +89,7 @@ const AddStudent = ({ onAdd }: AddStudentProps) => {
             min={0}
             max={100}
             value={average}
-            onChange={(e) => setAverage(Number(e.target.value))}
+            onChange={(e) => setAverage(e.target.value)}
             className={inputStyle}
           />
         </div>
